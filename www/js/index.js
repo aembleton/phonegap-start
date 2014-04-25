@@ -45,5 +45,16 @@ var app = {
         receivedElement.setAttribute('style', 'display:block;');
 
         console.log('Received Event: ' + id);
+
+        navigator.geolocation.getCurrentPosition(app.show_location, app.big_error);
+    },
+        show_location: function(position) {
+        var lat = position.coords.latitude;
+        var lon = position.coords.longitude;
+
+        document.getElementById('location').innerHTML="Location is "+lat+", "+lon;
+    },
+    big_error: function(err) {
+    document.getElementById('location').innerHTML=err.code;
     }
 };
