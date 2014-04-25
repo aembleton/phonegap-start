@@ -46,7 +46,7 @@ var app = {
 
         console.log('Received Event: ' + id);
 
-        navigator.geolocation.getCurrentPosition(app.show_location, app.big_error);
+        navigator.geolocation.getCurrentPosition(app.show_location, app.big_error, {enableHighAccuracy: true});
     },
         show_location: function(position) {
         var lat = position.coords.latitude;
